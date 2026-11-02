@@ -1,0 +1,3 @@
+.DS_Store
+# Herramientas locales: mencionan el paquete de inmigración, no van al repo público
+tools/

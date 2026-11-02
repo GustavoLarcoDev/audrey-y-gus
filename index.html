@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Audrey &amp; Gus · 17.10.2026</title>
+<meta name="description" content="Las fotos de nuestra boda · Our wedding photos">
+<meta property="og:title" content="Audrey &amp; Gus · 17.10.2026">
+<meta property="og:description" content="Las fotos de nuestra boda · Our wedding photos">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://gustavolarcodev.github.io/audrey-y-gus/fotos/mini/IMG_5426.jpg">
+<meta name="theme-color" content="#f7f3ec">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f3ec;
+    --ink: #2b2622;
+    --muted: #857a6f;
+    --line: #e4dccf;
+    --gold: #a8875a;
+    --chip: #efe8dc;
+    --gap: 6px;
+    --rowh: 210px;
+    --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  @media (max-width: 600px) { :root { --rowh: 128px; --gap: 4px; } }
+  @media (min-width: 1500px) { :root { --rowh: 250px; } }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+  a { color: inherit; }
+
+  /* Portada */
+  .hero { position: relative; height: min(100svh, 960px); min-height: 520px; overflow: hidden; background: #2b2622; color: #fff; }
+  .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, 50% 35%); }
+  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,16,12,.25) 0%, rgba(20,16,12,0) 30%, rgba(20,16,12,.15) 55%, rgba(20,16,12,.72) 100%); }
+  .hero-text { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; padding: 0 20px max(56px, env(safe-area-inset-bottom)); text-align: center; }
+  .hero h1 { margin: 0; font-family: var(--serif); font-weight: 400; font-style: italic; font-size: clamp(56px, 11vw, 132px); line-height: .95; letter-spacing: .01em; text-shadow: 0 2px 30px rgba(0,0,0,.25); }
+  .hero .date { margin: 18px 0 6px; font-family: var(--serif); font-size: clamp(20px, 3vw, 28px); letter-spacing: .28em; }
+  .hero .place { margin: 0; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; opacity: .88; }
+  .hero .cta { display: inline-block; margin-top: 28px; padding: 12px 26px; border: 1px solid rgba(255,255,255,.7); border-radius: 999px; font-size: 13px; letter-spacing: .16em; text-transform: uppercase; text-decoration: none; transition: background .2s; }
+  .hero .cta:hover { background: rgba(255,255,255,.14); }
+  .lang { position: absolute; top: max(16px, env(safe-area-inset-top)); right: 16px; z-index: 2; display: flex; gap: 2px; padding: 3px; border-radius: 999px; background: rgba(0,0,0,.28); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+  .lang button { padding: 6px 11px; border-radius: 999px; font-size: 12px; letter-spacing: .1em; color: #fff; opacity: .75; }
+  .lang button[aria-pressed="true"] { background: rgba(255,255,255,.92); color: var(--ink); opacity: 1; }
+
+  /* Momentos */
+  nav.moments { position: sticky; top: 0; z-index: 5; background: rgba(247,243,236,.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  nav.moments ul { display: flex; gap: 8px; margin: 0; padding: 10px 16px; list-style: none; overflow-x: auto; scrollbar-width: none; }
+  nav.moments ul::-webkit-scrollbar { display: none; }
+  nav.moments a { display: block; white-space: nowrap; padding: 7px 14px; border-radius: 999px; background: var(--chip); font-size: 13px; text-decoration: none; color: var(--ink); transition: background .2s, color .2s; }
+  nav.moments a.on { background: var(--ink); color: var(--bg); }
+  nav.moments small { margin-left: 6px; opacity: .6; }
+
+  main { max-width: 1680px; margin: 0 auto; padding: 8px 16px 40px; }
+  section { padding-top: 40px; }
+  section h2 { display: flex; align-items: baseline; gap: 14px; margin: 0 0 16px; font-family: var(--serif); font-weight: 500; font-size: clamp(26px, 3.2vw, 36px); line-height: 1.15; }
+  section h2 span { flex: none; font-family: var(--sans); font-size: 13px; font-weight: 400; color: var(--muted); }
+  section h2::after { content: ""; flex: 1; height: 1px; background: var(--line); align-self: center; }
+
+  .grid { display: flex; flex-wrap: wrap; gap: var(--gap); }
+  .grid::after { content: ""; flex-grow: 999999999; }
+  .ph { position: relative; width: calc(var(--r) * var(--rowh)); overflow: hidden; border-radius: 2px; background: var(--c); cursor: zoom-in; padding: 0; }
+  .ph::before { content: ""; display: block; padding-bottom: calc(100% / var(--r)); }
+  .ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .4s, transform .5s; }
+  .ph img.ok { opacity: 1; }
+  .ph:hover img { transform: scale(1.025); }
+  .ph:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+  footer { padding: 48px 20px 64px; text-align: center; color: var(--muted); }
+  footer .names { font-family: var(--serif); font-style: italic; font-size: 30px; color: var(--ink); }
+  footer p { margin: 6px 0; font-size: 13px; }
+
+  /* Visor */
+  .lb { position: fixed; inset: 0; z-index: 20; display: grid; grid-template-rows: auto 1fr; background: #0f0d0b; color: #f3eee6; }
+  .lb[hidden] { display: none; }
+  .lb-top { display: flex; align-items: center; gap: 12px; padding: max(10px, env(safe-area-inset-top)) 12px 10px 18px; font-size: 13px; }
+  .lb-info { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; opacity: .8; }
+  .lb-info b { font-weight: 500; margin-right: 10px; opacity: 1; }
+  .lb-top a, .lb-top button { display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 999px; text-decoration: none; font-size: 13px; }
+  .lb-top a { border: 1px solid rgba(255,255,255,.3); }
+  .lb-top a:hover, .lb-top button:hover { background: rgba(255,255,255,.1); }
+  .lb-top svg { width: 18px; height: 18px; }
+  .lb-stage { position: relative; min-height: 0; display: flex; align-items: center; justify-content: center; padding: 0 8px max(12px, env(safe-area-inset-bottom)); touch-action: pan-y; }
+  .lb-stage img { max-width: 100%; max-height: 100%; object-fit: contain; user-select: none; -webkit-user-select: none; }
+  .lb-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 52px; height: 52px; border-radius: 50%; background: rgba(0,0,0,.35); display: flex; align-items: center; justify-content: center; }
+  .lb-nav:hover { background: rgba(0,0,0,.6); }
+  .lb-nav svg { width: 24px; height: 24px; }
+  .lb-prev { left: 14px; }
+  .lb-next { right: 14px; }
+  @media (max-width: 600px) { .lb-nav { display: none; } .lb-dl span { display: none; } }
+</style>
+</head>
+<body>
+<header class="hero">
+  <img id="cover" alt="" fetchpriority="high">
+  <div class="lang" role="group" aria-label="Idioma / Language">
+    <button data-lang="es" aria-pressed="true">ES</button>
+    <button data-lang="en" aria-pressed="false">EN</button>
+  </div>
+  <div class="hero-text">
+    <h1>Audrey &amp; Gus</h1>
+    <p class="date">17 · 10 · 2026</p>
+    <p class="place" data-i18n="place"></p>
+    <a class="cta" href="#fotos" data-i18n="cta"></a>
+  </div>
+</header>
+
+<nav class="moments" aria-label="Momentos"><ul id="chips"></ul></nav>
+<main id="fotos"></main>
+
+<footer>
+  <div class="names">Audrey &amp; Gus</div>
+  <p data-i18n="footer"></p>
+</footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true">
+  <div class="lb-top">
+    <div class="lb-info"><b id="lbCount"></b><span id="lbSec"></span></div>
+    <a class="lb-dl" id="lbDl" download>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg>
+      <span data-i18n="download"></span>
+    </a>
+    <button id="lbClose" data-i18n-label="close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="lb-stage" id="lbStage">
+    <button class="lb-nav lb-prev" id="lbPrev" data-i18n-label="prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <img id="lbImg" alt="">
+    <button class="lb-nav lb-next" id="lbNext" data-i18n-label="next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+</div>
+
+<script>
+const COVER = "IMG_5426";
+const T = {
+  es: {
+    place: "Faust Park y Sophia M. Sachs Butterfly House · Chesterfield, Missouri",
+    cta: "Ver las fotos",
+    photos: n => n + " fotos",
+    download: "Descargar",
+    close: "Cerrar", prev: "Anterior", next: "Siguiente",
+    footer: "17 de octubre de 2026 · Fotos del fotógrafo de la boda",
+  },
+  en: {
+    place: "Faust Park & Sophia M. Sachs Butterfly House · Chesterfield, Missouri",
+    cta: "See the photos",
+    photos: n => n + " photos",
+    download: "Download",
+    close: "Close", prev: "Previous", next: "Next",
+    footer: "October 17, 2026 · Photos by our wedding photographer",
+  },
+};
+
+let lang = "es";
+try { lang = localStorage.getItem("lang") || (navigator.language || "es").slice(0, 2); } catch (e) {}
+if (!T[lang]) lang = "en";
+
+let data, fotos = [], current = -1;
+const $ = id => document.getElementById(id);
+const grande = f => "fotos/grande/" + f.id + ".jpg";
+const mini = f => "fotos/mini/" + f.id + ".jpg";
+
+function applyLang() {
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-lang]").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));
+  document.querySelectorAll("[data-i18n]").forEach(el => el.textContent = T[lang][el.dataset.i18n]);
+  document.querySelectorAll("[data-i18n-label]").forEach(el => el.setAttribute("aria-label", T[lang][el.dataset.i18nLabel]));
+  if (!data) return;
+  for (const s of data.secciones) {
+    const n = fotos.filter(f => f.s === s.id).length;
+    document.querySelector(`#chips a[href="#${s.id}"]`).innerHTML = `${s[lang]}<small>${n}</small>`;
+    document.querySelector(`#${s.id} h2`).innerHTML = `${s[lang]}<span>${T[lang].photos(n)}</span>`;
+  }
+  if (current >= 0) showInfo();
+}
+
+document.querySelectorAll("[data-lang]").forEach(b => b.addEventListener("click", () => {
+  lang = b.dataset.lang;
+  try { localStorage.setItem("lang", lang); } catch (e) {}
+  applyLang();
+}));
+
+function render() {
+  const main = $("fotos"), chips = $("chips");
+  for (const s of data.secciones) {
+    chips.insertAdjacentHTML("beforeend", `<li><a href="#${s.id}"></a></li>`);
+    const sec = document.createElement("section");
+    sec.id = s.id;
+    sec.innerHTML = "<h2></h2>";
+    const grid = document.createElement("div");
+    grid.className = "grid";
+    fotos.forEach((f, i) => {
+      if (f.s !== s.id) return;
+      const r = f.w / f.h;
+      const b = document.createElement("button");
+      b.className = "ph";
+      b.style.cssText = `--r:${r.toFixed(4)};--c:${f.c};flex-grow:${(r * 100).toFixed(1)}`;
+      b.setAttribute("aria-label", f.id);
+      const img = new Image();
+      img.loading = "lazy";
+      img.decoding = "async";
+      img.alt = "";
+      img.onload = () => img.classList.add("ok");
+      img.src = mini(f);
+      b.append(img);
+      b.addEventListener("click", () => openLb(i, true));
+      grid.append(b);
+    });
+    sec.append(grid);
+    main.append(sec);
+  }
+
+  // Resalta el momento que se está viendo
+  const links = [...chips.querySelectorAll("a")];
+  const obs = new IntersectionObserver(entries => {
+    for (const e of entries) if (e.isIntersecting) {
+      links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id));
+      const on = chips.querySelector("a.on");
+      if (on) on.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+    }
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  document.querySelectorAll("main section").forEach(s => obs.observe(s));
+}
+
+/* Visor */
+const lb = $("lb"), lbImg = $("lbImg");
+
+function showInfo() {
+  const f = fotos[current];
+  const s = data.secciones.find(x => x.id === f.s);
+  $("lbCount").textContent = `${current + 1} / ${fotos.length}`;
+  $("lbSec").textContent = s[lang];
+  $("lbDl").href = grande(f);
+  $("lbDl").setAttribute("download", `Audrey-y-Gus-${f.id}.jpg`);
+}
+
+function show(i) {
+  current = (i + fotos.length) % fotos.length;
+  const f = fotos[current];
+  lbImg.src = mini(f);
+  const big = new Image();
+  big.onload = () => { if (fotos[current] === f) lbImg.src = big.src; };
+  big.src = grande(f);
+  [current + 1, current - 1].forEach(j => { new Image().src = grande(fotos[(j + fotos.length) % fotos.length]); });
+  showInfo();
+  history.replaceState({ lb: true }, "", "#" + f.id);
+}
+
+function openLb(i, push) {
+  if (push) history.pushState({ lb: true }, "", "#" + fotos[i].id);
+  lb.hidden = false;
+  document.body.style.overflow = "hidden";
+  show(i);
+  $("lbClose").focus();
+}
+
+function closeLb() {
+  if (lb.hidden) return;
+  lb.hidden = true;
+  document.body.style.overflow = "";
+  const b = document.querySelectorAll(".ph")[current];
+  current = -1;
+  if (b) b.scrollIntoView({ block: "center" }), b.focus({ preventScroll: true });
+}
+
+$("lbClose").addEventListener("click", () => history.state && history.state.lb ? history.back() : (closeLb(), history.replaceState(null, "", location.pathname)));
+$("lbPrev").addEventListener("click", () => show(current - 1));
+$("lbNext").addEventListener("click", () => show(current + 1));
+window.addEventListener("popstate", () => {
+  const i = fotos.findIndex(f => "#" + f.id === location.hash);
+  i >= 0 ? openLb(i, false) : closeLb();
+});
+document.addEventListener("keydown", e => {
+  if (lb.hidden) return;
+  if (e.key === "ArrowRight") show(current + 1);
+  else if (e.key === "ArrowLeft") show(current - 1);
+  else if (e.key === "Escape") $("lbClose").click();
+});
+let x0 = null;
+$("lbStage").addEventListener("touchstart", e => { x0 = e.touches[0].clientX; }, { passive: true });
+$("lbStage").addEventListener("touchend", e => {
+  if (x0 === null) return;
+  const dx = e.changedTouches[0].clientX - x0;
+  if (Math.abs(dx) > 45) show(current + (dx < 0 ? 1 : -1));
+  x0 = null;
+});
+
+/* Arranque */
+$("cover").src = "fotos/grande/" + COVER + ".jpg";
+applyLang();
+fetch("fotos.json").then(r => r.json()).then(d => {
+  data = d;
+  fotos = d.fotos;
+  render();
+  applyLang();
+  const i = fotos.findIndex(f => "#" + f.id === location.hash);
+  if (i >= 0) openLb(i, false);
+  else if (location.hash.length > 1 && document.getElementById(location.hash.slice(1))) {
+    document.getElementById(location.hash.slice(1)).scrollIntoView({ behavior: "instant" });
+  }
+});
+</script>
+</body>
+</html>
