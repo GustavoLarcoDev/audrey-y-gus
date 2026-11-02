@@ -5,85 +5,132 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Audrey &amp; Gus · 17.10.2026</title>
-<meta name="description" content="Las fotos de nuestra boda · Our wedding photos">
+<meta name="description" content="El álbum de nuestra boda · Our wedding album">
 <meta property="og:title" content="Audrey &amp; Gus · 17.10.2026">
-<meta property="og:description" content="Las fotos de nuestra boda · Our wedding photos">
+<meta property="og:description" content="El álbum de nuestra boda · Our wedding album">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://gustavolarcodev.github.io/audrey-y-gus/fotos/mini/IMG_5426.jpg">
-<meta name="theme-color" content="#f7f3ec">
+<meta name="theme-color" content="#241f1b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f7f3ec;
+    --paper: #fbf8f2;
     --ink: #2b2622;
-    --muted: #857a6f;
-    --line: #e4dccf;
-    --gold: #a8875a;
-    --chip: #efe8dc;
-    --gap: 6px;
-    --rowh: 210px;
+    --muted: #8f8377;
+    --gold: #b8955f;
+    --foil: #dcbd86;
     --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --script: "Pinyon Script", "Cormorant Garamond", cursive;
     --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
-  @media (max-width: 600px) { :root { --rowh: 128px; --gap: 4px; } }
-  @media (min-width: 1500px) { :root { --rowh: 250px; } }
-
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
-  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
-  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
-  a { color: inherit; }
+  html, body { height: 100%; margin: 0; }
+  body { overflow: hidden; background: radial-gradient(ellipse 80% 70% at 50% 45%, #3d352e 0%, #241f1b 75%) fixed, #241f1b; color: #efe6d8; font-family: var(--sans); -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; }
+  button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+  .app { position: fixed; inset: 0; display: grid; grid-template-rows: auto 1fr auto; }
 
-  /* Portada */
-  .hero { position: relative; height: min(100svh, 960px); min-height: 520px; overflow: hidden; background: #2b2622; color: #fff; }
-  .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, 50% 35%); }
-  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,16,12,.25) 0%, rgba(20,16,12,0) 30%, rgba(20,16,12,.15) 55%, rgba(20,16,12,.72) 100%); }
-  .hero-text { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; padding: 0 20px max(56px, env(safe-area-inset-bottom)); text-align: center; }
-  .hero h1 { margin: 0; font-family: var(--serif); font-weight: 400; font-style: italic; font-size: clamp(56px, 11vw, 132px); line-height: .95; letter-spacing: .01em; text-shadow: 0 2px 30px rgba(0,0,0,.25); }
-  .hero .date { margin: 18px 0 6px; font-family: var(--serif); font-size: clamp(20px, 3vw, 28px); letter-spacing: .28em; }
-  .hero .place { margin: 0; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; opacity: .88; }
-  .hero .cta { display: inline-block; margin-top: 28px; padding: 12px 26px; border: 1px solid rgba(255,255,255,.7); border-radius: 999px; font-size: 13px; letter-spacing: .16em; text-transform: uppercase; text-decoration: none; transition: background .2s; }
-  .hero .cta:hover { background: rgba(255,255,255,.14); }
-  .lang { position: absolute; top: max(16px, env(safe-area-inset-top)); right: 16px; z-index: 2; display: flex; gap: 2px; padding: 3px; border-radius: 999px; background: rgba(0,0,0,.28); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
-  .lang button { padding: 6px 11px; border-radius: 999px; font-size: 12px; letter-spacing: .1em; color: #fff; opacity: .75; }
-  .lang button[aria-pressed="true"] { background: rgba(255,255,255,.92); color: var(--ink); opacity: 1; }
+  /* Barras */
+  .bar { display: flex; align-items: center; gap: 12px; padding: max(10px, env(safe-area-inset-top)) 16px 6px; }
+  .brand { flex: 1; font-family: var(--script); font-size: 26px; color: var(--foil); white-space: nowrap; }
+  .info { flex: 2; text-align: center; font-size: 13px; letter-spacing: .05em; color: rgba(239,230,216,.75); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .tools { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 8px; }
+  .pill { padding: 7px 13px; border-radius: 999px; border: 1px solid rgba(239,230,216,.25); font-size: 12px; letter-spacing: .08em; }
+  .pill:hover { background: rgba(255,255,255,.08); }
+  .lang { display: flex; padding: 3px; border-radius: 999px; background: rgba(0,0,0,.25); }
+  .lang button { padding: 5px 10px; border-radius: 999px; font-size: 12px; letter-spacing: .08em; opacity: .7; }
+  .lang button[aria-pressed="true"] { background: var(--paper); color: var(--ink); opacity: 1; }
+  .bottom { display: flex; align-items: center; gap: 12px; width: 100%; max-width: 560px; margin: 0 auto; padding: 6px 16px max(12px, env(safe-area-inset-bottom)); }
+  .bottom input { flex: 1; accent-color: var(--foil); }
+  .turn-s { flex: none; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,.25); }
+  .turn-s:disabled { opacity: .3; }
+  @media (max-width: 600px) { .brand { flex: none; font-size: 22px; } .info { flex: 1; font-size: 12px; } .tools { flex: none; } .pill { padding: 6px 10px; } }
+  @media (min-width: 860px) { .turn-s { display: none; } }
 
-  /* Momentos */
-  nav.moments { position: sticky; top: 0; z-index: 5; background: rgba(247,243,236,.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
-  nav.moments ul { position: relative; display: flex; gap: 8px; margin: 0; padding: 10px 16px; list-style: none; overflow-x: auto; scrollbar-width: none; }
-  nav.moments ul::-webkit-scrollbar { display: none; }
-  nav.moments a { display: block; white-space: nowrap; padding: 7px 14px; border-radius: 999px; background: var(--chip); font-size: 13px; text-decoration: none; color: var(--ink); transition: background .2s, color .2s; }
-  nav.moments a.on { background: var(--ink); color: var(--bg); }
-  nav.moments small { margin-left: 6px; opacity: .6; }
+  /* Libro */
+  .stage { position: relative; min-height: 0; display: flex; align-items: center; justify-content: center; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+  .book { position: relative; perspective: 2600px; transition: transform .8s cubic-bezier(.45,.1,.25,1); }
+  .slot { position: absolute; top: 0; height: 100%; }
+  .book.spread .slot.l { left: 0; width: 50%; }
+  .book.spread .slot.r { left: 50%; width: 50%; }
+  .book:not(.spread) .slot.l { display: none; }
+  .book:not(.spread) .slot.r { left: 0; width: 100%; }
+  .turn { position: absolute; top: 50%; z-index: 4; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,.25); transition: background .2s, opacity .2s; }
+  .turn:hover { background: rgba(0,0,0,.5); }
+  .turn:disabled { opacity: 0; pointer-events: none; }
+  .turn.prev { left: 20px; }
+  .turn.next { right: 20px; }
+  .turn svg, .turn-s svg { width: 24px; height: 24px; }
+  @media (max-width: 859px) { .turn { display: none; } }
 
-  main { max-width: 1680px; margin: 0 auto; padding: 8px 16px 40px; }
-  section { padding-top: 40px; }
-  section h2 { display: flex; align-items: baseline; gap: 14px; margin: 0 0 16px; font-family: var(--serif); font-weight: 500; font-size: clamp(26px, 3.2vw, 36px); line-height: 1.15; }
-  section h2 span { flex: none; font-family: var(--sans); font-size: 13px; font-weight: 400; color: var(--muted); }
-  section h2::after { content: ""; flex: 1; height: 1px; background: var(--line); align-self: center; }
+  .page { position: absolute; inset: 0; overflow: hidden; container-type: inline-size; background: var(--paper); color: var(--ink); box-shadow: 0 14px 34px -8px rgba(0,0,0,.55); }
+  .page.none { background: none; box-shadow: none; }
+  .page.l { background: linear-gradient(to left, rgba(70,50,30,.16), rgba(70,50,30,0) 7%), var(--paper); border-radius: 3px 0 0 3px; }
+  .page.r { background: linear-gradient(to right, rgba(70,50,30,.16), rgba(70,50,30,0) 7%), var(--paper); border-radius: 0 3px 3px 0; }
+  .page.s { background: linear-gradient(to right, rgba(70,50,30,.12), rgba(70,50,30,0) 4%), var(--paper); border-radius: 0 3px 3px 0; }
+  .num { position: absolute; bottom: 3.4%; font-family: var(--serif); font-size: 2.6cqw; color: var(--muted); }
+  .page.l .num { left: 7%; }
+  .page.r .num, .page.s .num { right: 7%; }
 
-  .grid { display: flex; flex-wrap: wrap; gap: var(--gap); }
-  .grid::after { content: ""; flex-grow: 999999999; }
-  .ph { position: relative; width: calc(var(--r) * var(--rowh)); overflow: hidden; border-radius: 2px; background: var(--c); cursor: zoom-in; padding: 0; }
-  .ph::before { content: ""; display: block; padding-bottom: calc(100% / var(--r)); }
-  .ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .4s, transform .5s; }
-  .ph img.ok { opacity: 1; }
-  .ph:hover img { transform: scale(1.025); }
-  .ph:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .foto { position: absolute; overflow: hidden; background: #e9e2d6; box-shadow: 0 1px 2px rgba(40,30,20,.2); cursor: zoom-in; }
+  .foto img { display: block; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .35s; }
+  .foto img.ok { opacity: 1; }
 
-  footer { padding: 48px 20px 64px; text-align: center; color: var(--muted); }
-  footer .names { font-family: var(--serif); font-style: italic; font-size: 30px; color: var(--ink); }
-  footer p { margin: 6px 0; font-size: 13px; }
+  /* Tapas */
+  .page.t-cover, .page.t-back {
+    background:
+      repeating-linear-gradient(45deg, rgba(255,255,255,.035) 0 1px, transparent 1px 4px),
+      repeating-linear-gradient(-45deg, rgba(0,0,0,.08) 0 1px, transparent 1px 4px),
+      radial-gradient(ellipse at 35% 25%, #2c3a5c, #1a2236 75%);
+    color: var(--foil);
+    border-radius: 4px;
+  }
+  .page.t-cover::before, .page.t-back::before { content: ""; position: absolute; inset: 3.2cqw; border: 1px solid rgba(220,189,134,.45); pointer-events: none; }
+  .cv-window { position: absolute; left: 17%; top: 12%; width: 66%; aspect-ratio: 3 / 2; padding: 1.2cqw; background: #f4efe6; box-shadow: inset 0 0 0 1px rgba(220,189,134,.8), 0 0 0 1.4cqw rgba(0,0,0,.18), 0 1px 3px rgba(0,0,0,.5); }
+  .cv-window img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .cv-names { position: absolute; left: 0; right: 0; top: 54%; text-align: center; font-family: var(--script); font-size: 14cqw; line-height: 1; text-shadow: 0 1px 0 rgba(0,0,0,.45); }
+  .cv-date { position: absolute; left: 0; right: 0; top: 75%; text-align: center; font-family: var(--serif); font-size: 4cqw; letter-spacing: .5em; text-indent: .5em; }
+  .cv-place { position: absolute; left: 0; right: 0; top: 82%; text-align: center; font-size: 2.2cqw; letter-spacing: .3em; text-indent: .3em; text-transform: uppercase; opacity: .8; }
+  .bk-mono { position: absolute; left: 0; right: 0; top: 44%; text-align: center; font-family: var(--script); font-size: 12cqw; }
+
+  /* Índice, portadillas y cierre */
+  .ix { position: absolute; inset: 9% 10% 9%; display: flex; flex-direction: column; }
+  .ix-title { text-align: center; font-family: var(--serif); font-style: italic; font-size: 8cqw; line-height: 1.1; }
+  .ix-orn { margin: 1cqw 0 4cqw; text-align: center; color: var(--gold); font-size: 3.4cqw; }
+  .ix ol { flex: 1; display: flex; flex-direction: column; justify-content: space-between; margin: 0; padding: 0; list-style: none; }
+  .ix a { display: flex; align-items: baseline; gap: 1.6cqw; color: inherit; text-decoration: none; font-family: var(--serif); font-size: 3.2cqw; line-height: 1.2; }
+  .ix a:hover .ix-t { color: var(--gold); }
+  .ix-n { flex: none; width: 5.5cqw; color: var(--gold); font-size: 2.5cqw; letter-spacing: .06em; }
+  .ix-d { flex: 1; min-width: 3cqw; border-bottom: 1px dotted rgba(43,38,34,.35); transform: translateY(-.6cqw); }
+  .ix-p { flex: none; }
+  .ch-head { position: absolute; left: 9%; right: 9%; top: 6.5%; height: 25%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .ch-num { font-family: var(--serif); font-size: 3.2cqw; letter-spacing: .3em; color: var(--gold); }
+  .ch-num::before, .ch-num::after { content: ""; display: inline-block; width: 7cqw; height: 1px; margin: 0 2.2cqw; vertical-align: middle; background: var(--gold); opacity: .7; }
+  .ch-title { margin-top: 1.6cqw; font-family: var(--serif); font-style: italic; font-size: 6.6cqw; line-height: 1.08; }
+  .ch-count { margin-top: 1.8cqw; font-size: 2.3cqw; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+  .end { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .end-names { font-family: var(--script); font-size: 12cqw; }
+  .end-orn { width: 18cqw; height: 1px; margin: 4cqw 0; background: var(--gold); }
+  .end-date { font-family: var(--serif); font-size: 4cqw; letter-spacing: .4em; text-indent: .4em; }
+  .end-place { margin-top: 2cqw; font-size: 2.2cqw; letter-spacing: .25em; text-transform: uppercase; color: var(--muted); }
+
+  /* Página que se voltea */
+  .flip { position: absolute; top: 0; height: 100%; z-index: 3; transform-style: preserve-3d; will-change: transform; }
+  .flip .page { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+  .flip .face-b { transform: rotateY(180deg); }
+  .flip .page::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to right, rgba(0,0,0,.28), rgba(0,0,0,.06)); opacity: 0; transition: opacity .8s; }
+  .flip.go .face-f::after { opacity: 1; }
+  .flip .face-b::after { opacity: 1; }
+  .flip.go .face-b::after { opacity: 0; }
 
   /* Visor */
   .lb { position: fixed; inset: 0; z-index: 20; display: grid; grid-template-rows: auto 1fr; background: #0f0d0b; color: #f3eee6; }
   .lb[hidden] { display: none; }
   .lb-top { display: flex; align-items: center; gap: 12px; padding: max(10px, env(safe-area-inset-top)) 12px 10px 18px; font-size: 13px; }
   .lb-info { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; opacity: .8; }
-  .lb-info b { font-weight: 500; margin-right: 10px; opacity: 1; }
-  .lb-top a, .lb-top button { display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 999px; text-decoration: none; font-size: 13px; }
+  .lb-info b { font-weight: 500; margin-right: 10px; }
+  .lb-top a, .lb-top button { display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 999px; color: inherit; text-decoration: none; font-size: 13px; }
   .lb-top a { border: 1px solid rgba(255,255,255,.3); }
   .lb-top a:hover, .lb-top button:hover { background: rgba(255,255,255,.1); }
   .lb-top svg { width: 18px; height: 18px; }
@@ -98,27 +145,34 @@
 </style>
 </head>
 <body>
-<header class="hero">
-  <img id="cover" alt="" fetchpriority="high">
-  <div class="lang" role="group" aria-label="Idioma / Language">
-    <button data-lang="es" aria-pressed="true">ES</button>
-    <button data-lang="en" aria-pressed="false">EN</button>
-  </div>
-  <div class="hero-text">
-    <h1>Audrey &amp; Gus</h1>
-    <p class="date">17 · 10 · 2026</p>
-    <p class="place" data-i18n="place"></p>
-    <a class="cta" href="#fotos" data-i18n="cta"></a>
-  </div>
-</header>
+<div class="app">
+  <header class="bar">
+    <div class="brand">A &amp; G</div>
+    <div class="info" id="info" aria-live="polite"></div>
+    <div class="tools">
+      <button class="pill" id="toIndex" data-i18n="contents"></button>
+      <div class="lang" role="group" aria-label="Idioma / Language">
+        <button data-lang="es" aria-pressed="true">ES</button>
+        <button data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
 
-<nav class="moments" aria-label="Momentos"><ul id="chips"></ul></nav>
-<main id="fotos"></main>
+  <div class="stage" id="stage">
+    <button class="turn prev" id="prev" data-i18n-label="prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <div class="book" id="book">
+      <div class="slot l" id="slotL"></div>
+      <div class="slot r" id="slotR"></div>
+    </div>
+    <button class="turn next" id="next" data-i18n-label="next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
 
-<footer>
-  <div class="names">Audrey &amp; Gus</div>
-  <p data-i18n="footer"></p>
-</footer>
+  <div class="bottom">
+    <button class="turn-s" id="prevS" data-i18n-label="prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <input type="range" id="scrub" min="0" value="0" data-i18n-label="scrub">
+    <button class="turn-s" id="nextS" data-i18n-label="next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+</div>
 
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true">
   <div class="lb-top">
@@ -142,103 +196,289 @@
 const COVER = "IMG_5426";
 const T = {
   es: {
-    place: "Faust Park y Sophia M. Sachs Butterfly House · Chesterfield, Missouri",
-    cta: "Ver las fotos",
-    photos: n => n + " fotos",
-    download: "Descargar",
-    close: "Cerrar", prev: "Anterior", next: "Siguiente",
-    footer: "17 de octubre de 2026 · Fotos del fotógrafo de la boda",
+    contents: "Índice",
+    photos: n => n === 1 ? "1 foto" : n + " fotos",
+    open: "Pasa la página para abrir el álbum",
+    back: "Contraportada",
+    page: "Página", pages: "Páginas", of: "de",
+    place: "Faust Park · Butterfly House · Chesterfield, Missouri",
+    download: "Descargar", close: "Cerrar", prev: "Anterior", next: "Siguiente", scrub: "Ir a la página",
   },
   en: {
-    place: "Faust Park & Sophia M. Sachs Butterfly House · Chesterfield, Missouri",
-    cta: "See the photos",
-    photos: n => n + " photos",
-    download: "Download",
-    close: "Close", prev: "Previous", next: "Next",
-    footer: "October 17, 2026 · Photos by our wedding photographer",
+    contents: "Contents",
+    photos: n => n === 1 ? "1 photo" : n + " photos",
+    open: "Turn the page to open the album",
+    back: "Back cover",
+    page: "Page", pages: "Pages", of: "of",
+    place: "Faust Park · Butterfly House · Chesterfield, Missouri",
+    download: "Download", close: "Close", prev: "Previous", next: "Next", scrub: "Go to page",
   },
 };
+const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV"];
+
+// <layout>  Medidas en unidades de página (100 × 125). Se prueba con node: ver tools/.
+const PW = 100, PH = 125, MX = 8, MY = 9, GAP = 2.2, CH_TOP = 42;
+// Plantillas: filas → celdas → cuántas fotos van apiladas en cada celda
+const TEMPLATES = [[[1]], [[1, 1]], [[1], [1]], [[1, 1, 1]], [[1, 2]], [[2, 1]], [[1], [1, 1]], [[1, 1], [1]], [[1, 1], [1, 1]]];
+// Ritmo de fotos por página, para que el álbum alterne páginas sueltas y compuestas
+const RHYTHM = [2, 3, 1, 2, 4, 3, 2, 1, 3, 4];
+
+function rowHeight(cells, width) {
+  let inv = 0, extra = 0;
+  for (const c of cells) {
+    const s = c.reduce((t, a) => t + 1 / a, 0);
+    inv += 1 / s;
+    extra += GAP * (c.length - 1) / s;
+  }
+  return (width - GAP * (cells.length - 1) + extra) / inv;
+}
+
+function fit(template, aspects, bw, bh) {
+  let k = 0;
+  const rows = template.map(r => r.map(n => aspects.slice(k, k += n)));
+  const heightFor = w => rows.reduce((t, r) => t + rowHeight(r, w), 0) + GAP * (rows.length - 1);
+  let w = bw;
+  if (heightFor(w) > bh) {
+    let lo = 0, hi = bw;
+    for (let j = 0; j < 40; j++) { const mid = (lo + hi) / 2; heightFor(mid) > bh ? hi = mid : lo = mid; }
+    w = lo;
+  }
+  const boxes = [];
+  let y = (bh - heightFor(w)) / 2;
+  for (const r of rows) {
+    const h = rowHeight(r, w);
+    let x = (bw - w) / 2;
+    for (const c of r) {
+      const cw = (h - GAP * (c.length - 1)) / c.reduce((t, a) => t + 1 / a, 0);
+      let cy = y;
+      for (const a of c) { boxes.push({ x, y: cy, w: cw, h: cw / a }); cy += cw / a + GAP; }
+      x += cw + GAP;
+    }
+    y += h + GAP;
+  }
+  return boxes;
+}
+
+function paginate(data) {
+  const pages = [{ t: "cover" }, { t: "index", num: true }];
+  const chapterPage = {};
+  const at = (b, dx, dy, p) => ({ x: b.x + dx, y: b.y + dy, w: b.w, h: b.h, p });
+  data.secciones.forEach((s, si) => {
+    const list = data.fotos.map((f, i) => ({ f, i, a: f.w / f.h })).filter(p => p.f.s === s.id);
+    chapterPage[s.id] = pages.length;
+    const first = fit([[1]], [list[0].a], PW - 2 * MX, PH - MY - CH_TOP)[0];
+    pages.push({ t: "chapter", si, num: true, boxes: [at(first, MX, CH_TOP, list[0])] });
+    let k = 1, n = 0;
+    const bw = PW - 2 * MX, bh = PH - 2 * MY;
+    while (k < list.length) {
+      let best = null;
+      for (const t of TEMPLATES) {
+        const cnt = t.flat().reduce((a, b) => a + b, 0);
+        if (k + cnt > list.length) continue;
+        const ps = list.slice(k, k + cnt);
+        const boxes = fit(t, ps.map(p => p.a), bw, bh);
+        const areas = boxes.map(b => b.w * b.h / (bw * bh));
+        if (Math.min(...areas) < 0.1) continue;
+        const score = areas.reduce((a, b) => a + b, 0) + 0.05 * cnt + (cnt === RHYTHM[n % RHYTHM.length] ? 0.2 : 0);
+        if (!best || score > best.score) best = { score, cnt, boxes: boxes.map((b, j) => at(b, MX, MY, ps[j])) };
+      }
+      pages.push({ t: "photos", num: true, boxes: best.boxes });
+      k += best.cnt;
+      n++;
+    }
+  });
+  pages.push({ t: "end", num: true });
+  if (pages.length % 2 === 0) pages.push({ t: "blank" }); // la contratapa queda a la izquierda
+  pages.push({ t: "back" });
+  const pageOf = {};
+  pages.forEach((p, i) => (p.boxes || []).forEach(b => { pageOf[b.p.i] = i; }));
+  return { pages, pageOf, chapterPage };
+}
+// </layout>
 
 let lang = "es";
 try { lang = localStorage.getItem("lang") || (navigator.language || "es").slice(0, 2); } catch (e) {}
 if (!T[lang]) lang = "en";
 
-let data, fotos = [], current = -1;
+let data, fotos = [], P = [], pageOf = {}, chapterPage = {}, count = {}, lastNum = 0;
+let views = [], view = 0, spread = false, pagePx = 400, busy = false, lastSwipe = 0;
 const $ = id => document.getElementById(id);
-const grande = f => "fotos/grande/" + f.id + ".jpg";
+const book = $("book"), slotL = $("slotL"), slotR = $("slotR"), stage = $("stage"), scrub = $("scrub");
 const mini = f => "fotos/mini/" + f.id + ".jpg";
+const grande = f => "fotos/grande/" + f.id + ".jpg";
+const pct = (v, total) => (v / total * 100).toFixed(3) + "%";
 
-function applyLang() {
-  document.documentElement.lang = lang;
-  document.querySelectorAll("[data-lang]").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));
-  document.querySelectorAll("[data-i18n]").forEach(el => el.textContent = T[lang][el.dataset.i18n]);
-  document.querySelectorAll("[data-i18n-label]").forEach(el => el.setAttribute("aria-label", T[lang][el.dataset.i18nLabel]));
-  if (!data) return;
-  for (const s of data.secciones) {
-    const n = fotos.filter(f => f.s === s.id).length;
-    document.querySelector(`#chips a[href="#${s.id}"]`).innerHTML = `${s[lang]}<small>${n}</small>`;
-    document.querySelector(`#${s.id} h2`).innerHTML = `${s[lang]}<span>${T[lang].photos(n)}</span>`;
-  }
-  if (current >= 0) showInfo();
+function srcFor(f, cssW) {
+  const miniW = 800 * f.w / Math.max(f.w, f.h);
+  return cssW * (window.devicePixelRatio || 1) > miniW * 1.05 ? grande(f) : mini(f);
 }
 
-document.querySelectorAll("[data-lang]").forEach(b => b.addEventListener("click", () => {
-  lang = b.dataset.lang;
-  try { localStorage.setItem("lang", lang); } catch (e) {}
-  applyLang();
-}));
-
-function render() {
-  const main = $("fotos"), chips = $("chips");
-  for (const s of data.secciones) {
-    chips.insertAdjacentHTML("beforeend", `<li><a href="#${s.id}"></a></li>`);
-    const sec = document.createElement("section");
-    sec.id = s.id;
-    sec.innerHTML = "<h2></h2>";
-    const grid = document.createElement("div");
-    grid.className = "grid";
-    fotos.forEach((f, i) => {
-      if (f.s !== s.id) return;
-      const r = f.w / f.h;
-      const b = document.createElement("button");
-      b.className = "ph";
-      b.style.cssText = `--r:${r.toFixed(4)};--c:${f.c};flex-grow:${(r * 100).toFixed(1)}`;
-      b.setAttribute("aria-label", f.id);
-      const img = new Image();
-      img.loading = "lazy";
-      img.decoding = "async";
-      img.alt = "";
-      img.onload = () => img.classList.add("ok");
-      img.src = mini(f);
-      b.append(img);
-      b.addEventListener("click", () => openLb(i, true));
-      grid.append(b);
-    });
-    sec.append(grid);
-    main.append(sec);
+/* Páginas */
+function pageEl(i, side) {
+  const el = document.createElement("div");
+  if (i == null) { el.className = "page none"; return el; }
+  const p = P[i], L = T[lang];
+  el.className = `page ${side} t-${p.t}`;
+  if (p.t === "cover") {
+    el.innerHTML = `<div class="cv-window"><img src="${grande({ id: COVER })}" alt=""></div>
+      <div class="cv-names">Audrey &amp; Gus</div><div class="cv-date">17 · 10 · 2026</div><div class="cv-place">Chesterfield, Missouri</div>`;
+  } else if (p.t === "back") {
+    el.innerHTML = `<div class="bk-mono">A &amp; G</div>`;
+  } else if (p.t === "index") {
+    el.innerHTML = `<div class="ix"><div class="ix-title">${L.contents}</div><div class="ix-orn">❦</div><ol>` +
+      data.secciones.map((s, si) => `<li><a href="#p${chapterPage[s.id]}" data-page="${chapterPage[s.id]}">
+        <span class="ix-n">${ROMAN[si]}</span><span class="ix-t">${s[lang]}</span><span class="ix-d"></span><span class="ix-p">${chapterPage[s.id]}</span></a></li>`).join("") +
+      `</ol></div>`;
+  } else if (p.t === "chapter") {
+    const s = data.secciones[p.si];
+    el.innerHTML = `<div class="ch-head"><div class="ch-num">${ROMAN[p.si]}</div><div class="ch-title">${s[lang]}</div><div class="ch-count">${L.photos(count[s.id])}</div></div>`;
+  } else if (p.t === "end") {
+    el.innerHTML = `<div class="end"><div class="end-names">Audrey &amp; Gus</div><div class="end-orn"></div><div class="end-date">17 · 10 · 2026</div><div class="end-place">${L.place}</div></div>`;
   }
+  for (const b of p.boxes || []) {
+    const btn = document.createElement("button");
+    btn.className = "foto";
+    btn.style.cssText = `left:${pct(b.x, PW)};top:${pct(b.y, PH)};width:${pct(b.w, PW)};height:${pct(b.h, PH)}`;
+    btn.dataset.i = b.p.i;
+    btn.setAttribute("aria-label", b.p.f.id);
+    const img = new Image();
+    img.alt = "";
+    img.decoding = "async";
+    img.onload = () => img.classList.add("ok");
+    img.src = srcFor(b.p.f, b.w / PW * pagePx);
+    btn.append(img);
+    el.append(btn);
+  }
+  if (p.num) el.insertAdjacentHTML("beforeend", `<span class="num">${i}</span>`);
+  return el;
+}
 
-  // Resalta el momento que se está viendo
-  const links = [...chips.querySelectorAll("a")];
-  const obs = new IntersectionObserver(entries => {
-    for (const e of entries) if (e.isIntersecting) {
-      links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id));
-      const on = chips.querySelector("a.on");
-      // Solo mueve la barra de momentos: scrollIntoView arrastraba la página hacia arriba
-      if (on) chips.scrollTo({ left: on.offsetLeft - (chips.clientWidth - on.offsetWidth) / 2, behavior: "smooth" });
+function buildViews() {
+  views = [];
+  if (spread) {
+    for (let v = 0; 2 * v - 1 < P.length; v++) views.push([v ? 2 * v - 1 : null, 2 * v < P.length ? 2 * v : null]);
+  } else {
+    P.forEach((p, i) => { if (p.t !== "blank") views.push([null, i]); });
+  }
+}
+
+function viewOfPage(i) {
+  const v = views.findIndex(([l, r]) => l === i || r === i);
+  return v >= 0 ? v : Math.max(0, views.findIndex(([l, r]) => Math.max(l ?? -1, r ?? -1) >= i));
+}
+
+const shift = v => !spread ? "translateX(0)" : views[v][0] == null ? "translateX(-25%)" : views[v][1] == null ? "translateX(25%)" : "translateX(0)";
+
+function size() {
+  const st = stage.getBoundingClientRect();
+  spread = st.width >= 860 && st.width / st.height > 1.15;
+  const availW = st.width - (spread ? 150 : 28), availH = st.height - (spread ? 36 : 20);
+  pagePx = Math.floor(Math.min(spread ? availW / 2 : availW, availH * PW / PH));
+  book.style.width = (spread ? pagePx * 2 : pagePx) + "px";
+  book.style.height = Math.round(pagePx * PH / PW) + "px";
+  book.classList.toggle("spread", spread);
+  buildViews();
+}
+
+function renderView() {
+  const [l, r] = views[view];
+  slotL.replaceChildren(pageEl(l, "l"));
+  slotR.replaceChildren(pageEl(r, spread ? "r" : "s"));
+  book.style.transform = shift(view);
+  updateUI();
+  preload();
+}
+
+function updateUI() {
+  const [l, r] = views[view], L = T[lang];
+  const nums = [l, r].filter(i => i != null && P[i].num);
+  if (r != null && P[r].t === "cover") $("info").textContent = L.open;
+  else if (!nums.length) $("info").textContent = L.back;
+  else $("info").textContent = `${nums.length > 1 ? L.pages : L.page} ${nums.join("–")} ${L.of} ${lastNum}`;
+  scrub.max = views.length - 1;
+  scrub.value = view;
+  $("prev").disabled = $("prevS").disabled = view === 0;
+  $("next").disabled = $("nextS").disabled = view === views.length - 1;
+  if (lb.hidden) history.replaceState(null, "", "#p" + (l ?? r));
+}
+
+function preload() {
+  for (const v of [view + 1, view + 2, view - 1]) {
+    if (!views[v]) continue;
+    for (const i of views[v]) {
+      if (i == null) continue;
+      for (const b of P[i].boxes || []) new Image().src = srcFor(b.p.f, b.w / PW * pagePx);
     }
-  }, { rootMargin: "-45% 0px -50% 0px" });
-  document.querySelectorAll("main section").forEach(s => obs.observe(s));
+  }
 }
 
-/* Visor */
+function jump(v) {
+  if (busy || v < 0 || v >= views.length) return;
+  view = v;
+  renderView();
+}
+
+function face(i, side, cls) {
+  const el = pageEl(i, side);
+  el.classList.add(cls);
+  return el;
+}
+
+async function turn(dir) {
+  const target = view + dir;
+  if (busy || target < 0 || target >= views.length) return;
+  busy = true;
+  const [cl, cr] = views[view], [nl, nr] = views[target];
+  const flip = document.createElement("div");
+  flip.className = "flip";
+  let from = 0, to;
+  if (spread && dir > 0) {
+    flip.style.cssText = "left:50%;width:50%;transform-origin:left center";
+    flip.append(face(cr, "r", "face-f"), face(nl, "l", "face-b"));
+    slotR.replaceChildren(pageEl(nr, "r"));
+    to = -180;
+  } else if (spread) {
+    flip.style.cssText = "left:0;width:50%;transform-origin:right center";
+    flip.append(face(cl, "l", "face-f"), face(nr, "r", "face-b"));
+    slotL.replaceChildren(pageEl(nl, "l"));
+    to = 180;
+  } else if (dir > 0) {
+    flip.style.cssText = "left:0;width:100%;transform-origin:left center";
+    flip.append(face(cr, "s", "face-f"));
+    slotR.replaceChildren(pageEl(nr, "s"));
+    to = -180;
+  } else {
+    // En el celular la página anterior vuelve desde la izquierda y tapa la actual
+    flip.style.cssText = "left:0;width:100%;transform-origin:left center";
+    flip.append(face(nr, "s", "face-f"));
+    from = -180;
+    to = 0;
+  }
+  flip.style.transform = `rotateY(${from}deg)`;
+  book.append(flip);
+  if (spread) book.style.transform = shift(target);
+  flip.getBoundingClientRect();
+  flip.style.transition = "transform .8s cubic-bezier(.45,.1,.25,1)";
+  flip.classList.add("go");
+  flip.style.transform = `rotateY(${to}deg)`;
+  await new Promise(res => {
+    const t = setTimeout(res, 1100);
+    flip.addEventListener("transitionend", e => { if (e.target === flip) { clearTimeout(t); res(); } });
+  });
+  view = target;
+  renderView();
+  flip.remove();
+  busy = false;
+}
+
+/* Visor de fotos */
 const lb = $("lb"), lbImg = $("lbImg");
+let current = -1, lbPushed = false;
 
 function showInfo() {
   const f = fotos[current];
-  const s = data.secciones.find(x => x.id === f.s);
   $("lbCount").textContent = `${current + 1} / ${fotos.length}`;
-  $("lbSec").textContent = s[lang];
+  $("lbSec").textContent = data.secciones.find(x => x.id === f.s)[lang];
   $("lbDl").href = grande(f);
   $("lbDl").setAttribute("download", `Audrey-y-Gus-${f.id}.jpg`);
 }
@@ -252,13 +492,13 @@ function show(i) {
   big.src = grande(f);
   [current + 1, current - 1].forEach(j => { new Image().src = grande(fotos[(j + fotos.length) % fotos.length]); });
   showInfo();
-  history.replaceState({ lb: true }, "", "#" + f.id);
+  history.replaceState(history.state, "", "#" + f.id);
 }
 
 function openLb(i, push) {
   if (push) history.pushState({ lb: true }, "", "#" + fotos[i].id);
+  lbPushed = push || lbPushed;
   lb.hidden = false;
-  document.body.style.overflow = "hidden";
   show(i);
   $("lbClose").focus();
 }
@@ -266,47 +506,105 @@ function openLb(i, push) {
 function closeLb() {
   if (lb.hidden) return;
   lb.hidden = true;
-  document.body.style.overflow = "";
-  const b = document.querySelectorAll(".ph")[current];
+  lbPushed = false;
+  const v = viewOfPage(pageOf[current]);
   current = -1;
-  if (b) b.scrollIntoView({ block: "center" }), b.focus({ preventScroll: true });
+  if (v !== view) jump(v); else updateUI();
 }
 
-$("lbClose").addEventListener("click", () => history.state && history.state.lb ? history.back() : (closeLb(), history.replaceState(null, "", location.pathname)));
+$("lbClose").addEventListener("click", () => lbPushed ? history.back() : closeLb());
 $("lbPrev").addEventListener("click", () => show(current - 1));
 $("lbNext").addEventListener("click", () => show(current + 1));
 window.addEventListener("popstate", () => {
   const i = fotos.findIndex(f => "#" + f.id === location.hash);
   i >= 0 ? openLb(i, false) : closeLb();
 });
-document.addEventListener("keydown", e => {
-  if (lb.hidden) return;
-  if (e.key === "ArrowRight") show(current + 1);
-  else if (e.key === "ArrowLeft") show(current - 1);
-  else if (e.key === "Escape") $("lbClose").click();
-});
-let x0 = null;
-$("lbStage").addEventListener("touchstart", e => { x0 = e.touches[0].clientX; }, { passive: true });
+let lx0 = null;
+$("lbStage").addEventListener("touchstart", e => { lx0 = e.touches[0].clientX; }, { passive: true });
 $("lbStage").addEventListener("touchend", e => {
-  if (x0 === null) return;
-  const dx = e.changedTouches[0].clientX - x0;
+  if (lx0 === null) return;
+  const dx = e.changedTouches[0].clientX - lx0;
   if (Math.abs(dx) > 45) show(current + (dx < 0 ? 1 : -1));
+  lx0 = null;
+});
+
+/* Controles del álbum */
+book.addEventListener("click", e => {
+  if (busy || Date.now() - lastSwipe < 400) return;
+  const foto = e.target.closest(".foto");
+  if (foto) return openLb(+foto.dataset.i, true);
+  const link = e.target.closest("[data-page]");
+  if (link) { e.preventDefault(); return jump(viewOfPage(+link.dataset.page)); }
+  if (view === 0) return turn(1);
+  const r = book.getBoundingClientRect();
+  turn((e.clientX - r.left) / r.width >= 0.5 ? 1 : -1);
+});
+["prev", "prevS"].forEach(id => $(id).addEventListener("click", () => turn(-1)));
+["next", "nextS"].forEach(id => $(id).addEventListener("click", () => turn(1)));
+$("toIndex").addEventListener("click", () => jump(viewOfPage(1)));
+scrub.addEventListener("input", () => jump(+scrub.value));
+
+let x0 = null, y0 = 0;
+stage.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+stage.addEventListener("touchend", e => {
+  if (x0 === null) return;
+  const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+  if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) { lastSwipe = Date.now(); turn(dx < 0 ? 1 : -1); }
   x0 = null;
 });
 
+document.addEventListener("keydown", e => {
+  if (!lb.hidden) {
+    if (e.key === "ArrowRight") show(current + 1);
+    else if (e.key === "ArrowLeft") show(current - 1);
+    else if (e.key === "Escape") $("lbClose").click();
+    return;
+  }
+  if (e.key === "ArrowRight" || e.key === "PageDown") turn(1);
+  else if (e.key === "ArrowLeft" || e.key === "PageUp") turn(-1);
+  else if (e.key === "Home") jump(0);
+  else if (e.key === "End") jump(views.length - 1);
+});
+
+let resizeTimer;
+window.addEventListener("resize", () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    if (!data || busy) return;
+    const [l, r] = views[view];
+    size();
+    view = viewOfPage(l ?? r);
+    renderView();
+  }, 150);
+});
+
+function applyLang() {
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-lang]").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));
+  document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = T[lang][el.dataset.i18n]; });
+  document.querySelectorAll("[data-i18n-label]").forEach(el => el.setAttribute("aria-label", T[lang][el.dataset.i18nLabel]));
+  if (data) renderView();
+  if (current >= 0) showInfo();
+}
+document.querySelectorAll("[data-lang]").forEach(b => b.addEventListener("click", () => {
+  lang = b.dataset.lang;
+  try { localStorage.setItem("lang", lang); } catch (e) {}
+  applyLang();
+}));
+
 /* Arranque */
-$("cover").src = "fotos/grande/" + COVER + ".jpg";
 applyLang();
 fetch("fotos.json").then(r => r.json()).then(d => {
   data = d;
   fotos = d.fotos;
-  render();
-  applyLang();
-  const i = fotos.findIndex(f => "#" + f.id === location.hash);
-  if (i >= 0) openLb(i, false);
-  else if (location.hash.length > 1 && document.getElementById(location.hash.slice(1))) {
-    document.getElementById(location.hash.slice(1)).scrollIntoView({ behavior: "instant" });
-  }
+  fotos.forEach(f => { count[f.s] = (count[f.s] || 0) + 1; });
+  ({ pages: P, pageOf, chapterPage } = paginate(d));
+  lastNum = P.findIndex(p => p.t === "end");
+  size();
+  const h = location.hash.slice(1), fi = fotos.findIndex(f => f.id === h), m = /^p(\d+)$/.exec(h);
+  view = fi >= 0 ? viewOfPage(pageOf[fi]) : m ? viewOfPage(+m[1]) : 0;
+  renderView();
+  if (fi >= 0) openLb(fi, false);
 });
 </script>
 </body>
