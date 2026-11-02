@@ -52,7 +52,7 @@
 
   /* Momentos */
   nav.moments { position: sticky; top: 0; z-index: 5; background: rgba(247,243,236,.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
-  nav.moments ul { display: flex; gap: 8px; margin: 0; padding: 10px 16px; list-style: none; overflow-x: auto; scrollbar-width: none; }
+  nav.moments ul { position: relative; display: flex; gap: 8px; margin: 0; padding: 10px 16px; list-style: none; overflow-x: auto; scrollbar-width: none; }
   nav.moments ul::-webkit-scrollbar { display: none; }
   nav.moments a { display: block; white-space: nowrap; padding: 7px 14px; border-radius: 999px; background: var(--chip); font-size: 13px; text-decoration: none; color: var(--ink); transition: background .2s, color .2s; }
   nav.moments a.on { background: var(--ink); color: var(--bg); }
@@ -224,7 +224,8 @@ function render() {
     for (const e of entries) if (e.isIntersecting) {
       links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id));
       const on = chips.querySelector("a.on");
-      if (on) on.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+      // Solo mueve la barra de momentos: scrollIntoView arrastraba la página hacia arriba
+      if (on) chips.scrollTo({ left: on.offsetLeft - (chips.clientWidth - on.offsetWidth) / 2, behavior: "smooth" });
     }
   }, { rootMargin: "-45% 0px -50% 0px" });
   document.querySelectorAll("main section").forEach(s => obs.observe(s));
